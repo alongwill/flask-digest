@@ -21,7 +21,8 @@ def get_handler(a_digest):
     if a_digest in received_messages:
         return jsonify(message=received_messages[a_digest])
     else:
-        return make_response("",404)
+        return jsonify(err_msg="Message not found"), 404
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    context = ('certs/cacert.crt', 'certs/key.pem')
+    app.run(debug=True, ssl_context=context)
