@@ -6,7 +6,7 @@ app = Flask(__name__)
 # Dict of messages received by the server
 received_messages = {}
 
-@app.route('/message', methods=['POST'])
+@app.route('/messages', methods=['POST'])
 def post_handler():    
     data = request.get_json()
     sha256_digest = hashlib.sha256(data['message'].encode('utf-8')).hexdigest()
@@ -16,7 +16,7 @@ def post_handler():
 
     return jsonify(digest=sha256_digest)
         
-@app.route('/message/<a_digest>', methods=['GET'])
+@app.route('/messages/<a_digest>', methods=['GET'])
 def get_handler(a_digest):
     if a_digest in received_messages:
         return jsonify(message=received_messages[a_digest])
