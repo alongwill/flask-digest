@@ -14,7 +14,7 @@ def post_handler():
     # Keep track of messages we've received.
     received_messages[sha256_digest] = data['message']
 
-    return jsonify(digest=sha256_digest)
+    return jsonify(digest=sha256_digest), 201
         
 @app.route('/messages/<a_digest>', methods=['GET'])
 def get_handler(a_digest):
