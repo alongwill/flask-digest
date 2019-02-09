@@ -25,4 +25,4 @@ def get_handler(a_digest):
 
 if __name__ == '__main__':
     context = ('certs/cacert.crt', 'certs/key.pem')
-    app.run(debug=True, ssl_context=context)
+    app.run(debug=True, host='0.0.0.0', ssl_context=context)
