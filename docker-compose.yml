@@ -7,3 +7,9 @@ services:
     image: flask-digest
     ports:
       - "5000:5000"
+    restart: on-failure
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "1k"
+        max-file: "3"
