@@ -7,7 +7,9 @@ openssl req \
  -nodes \
  -newkey rsa:4096 \
  -keyout key.pem \
- -out cacert.crt \
+ -out localhost.crt \
  -days 3650 \
  -sha256 \
  -subj '//CN=localhost'
+
+mv localhost.crt ../localhost.crt
